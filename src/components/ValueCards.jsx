@@ -25,6 +25,15 @@ export default function ValueCards() {
   return (
     <section id="values" className="py-24 md:py-32 bg-white">
       <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <span className="text-xs uppercase tracking-[0.3em] text-warm font-medium">
+            Why Families Choose Me
+          </span>
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-light text-charcoal mt-3">
+            Built on{' '}
+            <span className="italic text-sage-dark">Trust & Care</span>
+          </h2>
+        </div>
         <div className="grid md:grid-cols-3 gap-8">
           {values.map((v) => (
             <div
