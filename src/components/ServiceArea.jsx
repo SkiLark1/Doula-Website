@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { MapPin } from 'lucide-react'
 
 export default function ServiceArea() {
@@ -16,15 +17,15 @@ export default function ServiceArea() {
           If you're unsure whether you're within my service area, don't
           hesitate to reach out — I'm happy to chat!
         </p>
-        <a
-          href="#contact"
+        <Link
+          to="/contact"
           className="inline-flex items-center gap-2 text-sage-dark font-medium hover:text-sage transition-colors group"
         >
           Check if I serve your area
           <span className="group-hover:translate-x-1 transition-transform">
             &rarr;
           </span>
-        </a>
+        </Link>
       </div>
     </section>
   )

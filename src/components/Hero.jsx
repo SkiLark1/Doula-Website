@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { Heart } from 'lucide-react'
 
 const DUST_COLORS = ['#C4A882', '#D4BE9C', '#8B9E8B', '#A8B9A8', '#E8D5C4', '#C9A9A6']
@@ -116,22 +117,29 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up-delay-2">
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="px-10 py-4 bg-sage text-white text-sm font-medium rounded-full hover:bg-sage-dark hover:shadow-lg transition-all duration-300 tracking-widest uppercase"
           >
             Book a Free Consultation
-          </a>
-          <a
-            href="#services"
+          </Link>
+          <Link
+            to="/services"
             className="px-10 py-4 border border-warm text-warm-dark text-sm font-medium rounded-full hover:bg-warm hover:text-white transition-all duration-300 tracking-widest uppercase"
           >
             Explore Services
-          </a>
+          </Link>
         </div>
 
         {/* Gentle scroll indicator */}
-        <a href="#about" className="mt-14 animate-fade-in-up-delay-2 inline-block animate-gentle-bounce">
+        <a
+          href="#values"
+          className="mt-14 animate-fade-in-up-delay-2 inline-block animate-gentle-bounce"
+          onClick={(e) => {
+            e.preventDefault()
+            document.getElementById('values')?.scrollIntoView({ behavior: 'smooth' })
+          }}
+        >
           <svg
             width="24"
             height="14"

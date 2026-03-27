@@ -1,25 +1,5 @@
-import { Leaf, Heart, Shield } from 'lucide-react'
-
-const values = [
-  {
-    icon: Heart,
-    title: 'Compassionate Presence',
-    description:
-      'I believe every birthing person deserves unwavering emotional support and a calm, steady presence throughout their journey.',
-  },
-  {
-    icon: Shield,
-    title: 'Judgment-Free Support',
-    description:
-      'Your choices are honored here. I provide evidence-based information so you can make empowered decisions that feel right for you.',
-  },
-  {
-    icon: Leaf,
-    title: 'Holistic Care',
-    description:
-      'Birth is more than a physical event. I nurture your emotional, mental, and spiritual wellbeing from pregnancy through postpartum.',
-  },
-]
+import { Leaf } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function About() {
   return (
@@ -37,7 +17,7 @@ export default function About() {
         </div>
 
         {/* Story */}
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center mb-24">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Image placeholder */}
           <div className="relative">
             <div className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-blush-light to-cream-dark overflow-hidden relative">
@@ -79,35 +59,15 @@ export default function About() {
             </p>
 
             <div className="pt-4">
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="inline-flex items-center gap-2 text-sage-dark font-medium hover:text-sage transition-colors group"
               >
                 Let's connect
                 <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </div>
-        </div>
-
-        {/* Values */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {values.map((v) => (
-            <div
-              key={v.title}
-              className="text-center p-8 rounded-2xl bg-cream/50 hover:bg-cream transition-colors duration-300 group"
-            >
-              <div className="w-16 h-16 rounded-full bg-sage/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-sage/20 transition-colors duration-300">
-                <v.icon size={28} className="text-sage" />
-              </div>
-              <h4 className="font-heading text-xl font-medium text-charcoal mb-3">
-                {v.title}
-              </h4>
-              <p className="text-sm text-charcoal-light leading-relaxed">
-                {v.description}
-              </p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

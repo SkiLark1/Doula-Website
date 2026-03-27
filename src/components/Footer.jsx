@@ -1,4 +1,12 @@
+import { Link } from 'react-router-dom'
 import { Heart } from 'lucide-react'
+
+const quickLinks = [
+  { name: 'About', href: '/about' },
+  { name: 'Services', href: '/services' },
+  { name: 'FAQ', href: '/faq' },
+  { name: 'Contact', href: '/contact' },
+]
 
 export default function Footer() {
   return (
@@ -7,14 +15,14 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <a href="#" className="inline-block mb-4">
+            <Link to="/" className="inline-block mb-4">
               <span className="font-heading text-2xl font-semibold text-white tracking-wide">
                 Held & Heard
               </span>
               <span className="block text-[10px] uppercase tracking-[0.3em] text-warm-light -mt-0.5">
                 Doula Care
               </span>
-            </a>
+            </Link>
             <p className="text-sm leading-relaxed text-white/50">
               Supportive, grounded care for your pregnancy, birth, and
               postpartum journey.
@@ -27,17 +35,15 @@ export default function Footer() {
               Quick Links
             </h4>
             <div className="space-y-2.5">
-              {['About', 'Services', 'Process', 'Testimonials', 'FAQ', 'Contact'].map(
-                (link) => (
-                  <a
-                    key={link}
-                    href={`#${link.toLowerCase()}`}
-                    className="block text-sm text-white/60 hover:text-warm-light transition-colors"
-                  >
-                    {link}
-                  </a>
-                )
-              )}
+              {quickLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="block text-sm text-white/60 hover:text-warm-light transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -60,7 +66,9 @@ export default function Footer() {
                 (123) 456-7890
               </a>
               <a
-                href="#"
+                href="https://instagram.com/heldandheard.doulacare"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block text-white/60 hover:text-warm-light transition-colors"
               >
                 @heldandheard.doulacare

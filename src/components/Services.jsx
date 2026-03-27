@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Baby, Moon, Heart, Clock, Users, Sparkles } from 'lucide-react'
 
 const birthFeatures = [
@@ -60,12 +61,12 @@ export default function Services() {
             </div>
 
             <div className="mt-8 pt-8 border-t border-cream-dark">
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="inline-flex items-center gap-2 px-8 py-3 bg-sage text-white text-sm font-medium rounded-full hover:bg-sage-dark transition-all duration-300 tracking-wide uppercase"
               >
-                Learn More
-              </a>
+                Book a Consultation
+              </Link>
             </div>
           </div>
 
@@ -95,12 +96,12 @@ export default function Services() {
             </div>
 
             <div className="mt-8 pt-8 border-t border-cream-dark">
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="inline-flex items-center gap-2 px-8 py-3 bg-warm text-white text-sm font-medium rounded-full hover:bg-warm-dark transition-all duration-300 tracking-wide uppercase"
               >
-                Learn More
-              </a>
+                Book a Consultation
+              </Link>
             </div>
           </div>
         </div>

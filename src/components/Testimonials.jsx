@@ -1,25 +1,4 @@
-import { Star, Quote } from 'lucide-react'
-
-const testimonials = [
-  {
-    quote:
-      'Having Maryna by my side during labor was the best decision I made. She was calm, encouraging, and helped me feel so empowered. I couldn\'t have done it without her.',
-    name: 'Sarah M.',
-    detail: 'First-time mom',
-  },
-  {
-    quote:
-      'Maryna\'s postpartum support was a lifesaver. She helped me feel like myself again during those overwhelming early weeks. Her warmth and knowledge made all the difference.',
-    name: 'Jessica R.',
-    detail: 'Mom of two',
-  },
-  {
-    quote:
-      'From our very first meeting, I felt heard and understood. Maryna created such a safe, supportive space for my partner and me. She truly goes above and beyond.',
-    name: 'Amanda & Chris T.',
-    detail: 'Parents of baby Lily',
-  },
-]
+import { Heart } from 'lucide-react'
 
 export default function Testimonials() {
   return (
@@ -35,40 +14,20 @@ export default function Testimonials() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((t, i) => (
-            <div
-              key={i}
-              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 relative"
-            >
-              <Quote
-                size={32}
-                className="text-sage/15 absolute top-6 right-6"
-                fill="currentColor"
-              />
-              <div className="flex gap-1 mb-5">
-                {[...Array(5)].map((_, j) => (
-                  <Star
-                    key={j}
-                    size={16}
-                    className="text-warm"
-                    fill="currentColor"
-                  />
-                ))}
-              </div>
-              <p className="text-charcoal-light leading-relaxed mb-6 italic text-sm">
-                "{t.quote}"
-              </p>
-              <div className="border-t border-cream-dark pt-4">
-                <p className="font-heading text-lg font-medium text-charcoal">
-                  {t.name}
-                </p>
-                <p className="text-xs text-warm-dark uppercase tracking-wider">
-                  {t.detail}
-                </p>
-              </div>
+        <div className="max-w-lg mx-auto text-center">
+          <div className="bg-white rounded-2xl p-12 shadow-sm">
+            <div className="w-16 h-16 rounded-full bg-sage/10 flex items-center justify-center mx-auto mb-6">
+              <Heart size={28} className="text-sage" />
             </div>
-          ))}
+            <h3 className="font-heading text-2xl font-medium text-charcoal mb-3">
+              Testimonials Coming Soon
+            </h3>
+            <p className="text-charcoal-light leading-relaxed text-sm">
+              Real stories from the families I've had the honor of supporting
+              will be shared here soon. In the meantime, I'd love to connect
+              and tell you more about what I do.
+            </p>
+          </div>
         </div>
       </div>
     </section>
