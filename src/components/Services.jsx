@@ -98,7 +98,7 @@ export default function Services() {
             <div className="mt-8 pt-8 border-t border-cream-dark">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-3 bg-warm text-white text-sm font-medium rounded-full hover:bg-warm-dark transition-all duration-300 tracking-wide uppercase"
+                className="inline-flex items-center gap-2 px-8 py-3 bg-sage text-white text-sm font-medium rounded-full hover:bg-sage-dark transition-all duration-300 tracking-wide uppercase"
               >
                 Book a Consultation
               </Link>
