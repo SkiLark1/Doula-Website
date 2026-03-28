@@ -1,5 +1,15 @@
 import { useState } from 'react'
-import { Mail, Phone, Instagram, Send, Loader2 } from 'lucide-react'
+import { Mail, Phone, Send, Loader2 } from 'lucide-react'
+
+function InstagramIcon({ size = 18, className = '' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  )
+}
 
 const API_URL = import.meta.env.VITE_API_URL || ''
 
@@ -96,7 +106,7 @@ export default function Contact() {
                   className="flex items-center gap-4 text-charcoal-light hover:text-sage-dark transition-colors group"
                 >
                   <div className="w-10 h-10 rounded-full bg-sage/10 flex items-center justify-center group-hover:bg-sage/20 transition-colors">
-                    <Instagram size={18} className="text-sage" />
+                    <InstagramIcon size={18} className="text-sage" />
                   </div>
                   <span className="text-sm">@heldandheard.doulacare</span>
                 </a>
