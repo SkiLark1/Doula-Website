@@ -54,16 +54,16 @@ export default function Footer() {
             </h4>
             <div className="space-y-2.5 text-sm">
               <a
-                href="mailto:hello@heldandheard.com"
+                href="mailto:Maryna@heldandheardcare.com"
                 className="block text-white/60 hover:text-warm-light transition-colors"
               >
-                hello@heldandheard.com
+                Maryna@heldandheardcare.com
               </a>
               <a
-                href="tel:+1234567890"
+                href="tel:+15304404663"
                 className="block text-white/60 hover:text-warm-light transition-colors"
               >
-                (123) 456-7890
+                (530) 440-4663
               </a>
               <a
                 href="https://instagram.com/heldandheard.doulacare"

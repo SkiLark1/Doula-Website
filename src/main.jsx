@@ -26,7 +26,7 @@ function trackPageView() {
       referrer: document.referrer,
       visitorId,
     }),
-  }).catch(() => {}) // Silently fail — analytics should never break the site
+  }).catch(() => {}) // Silently fail - analytics should never break the site
 }
 
 // Track initial page load

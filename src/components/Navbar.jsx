@@ -36,13 +36,20 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <Link to="/" className="flex flex-col leading-tight">
-            <span className="font-heading text-2xl md:text-3xl font-semibold text-charcoal tracking-wide">
-              Held & Heard
-            </span>
-            <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-warm-dark font-medium -mt-0.5">
-              Doula Care
-            </span>
+          <Link to="/" className="flex items-center gap-2.5">
+            <img
+              src="/logo.png"
+              alt="Held & Heard Doula Care"
+              className="h-12 md:h-14 w-auto"
+            />
+            <div className="flex flex-col leading-tight">
+              <span className="font-heading text-xl md:text-2xl font-semibold text-charcoal tracking-wide">
+                Held & Heard
+              </span>
+              <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-warm-dark font-medium -mt-0.5">
+                Doula Care
+              </span>
+            </div>
           </Link>
 
           {/* Desktop */}

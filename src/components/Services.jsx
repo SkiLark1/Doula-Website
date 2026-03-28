@@ -3,10 +3,10 @@ import { Baby, Moon, Heart, Clock, Users, Sparkles, BookOpen, Home } from 'lucid
 
 const birthFeatures = [
   { icon: Users, text: 'Prenatal visits to build trust & prepare' },
+  { icon: BookOpen, text: 'Evidence-based information to guide your decisions' },
   { icon: Heart, text: 'Continuous labor & delivery support' },
   { icon: Clock, text: 'On-call availability as your due date approaches' },
   { icon: Sparkles, text: 'Immediate postpartum support' },
-  { icon: BookOpen, text: 'Evidence-based information to guide your decisions' },
 ]
 
 const postpartumFeatures = [

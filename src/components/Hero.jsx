@@ -13,7 +13,7 @@ function DustLetter({ char, delay }) {
 
     const particles = []
     const timer = setTimeout(() => {
-      // Main burst particles — blow to the right
+      // Main burst particles - blow to the right
       for (let i = 0; i < 18; i++) {
         const dot = document.createElement('span')
         const color = DUST_COLORS[Math.floor(Math.random() * DUST_COLORS.length)]
@@ -42,7 +42,7 @@ function DustLetter({ char, delay }) {
         el.appendChild(dot)
         particles.push(dot)
       }
-      // Lingering sparkle particles — smaller, float up-right slowly
+      // Lingering sparkle particles - smaller, float up-right slowly
       for (let i = 0; i < 8; i++) {
         const dot = document.createElement('span')
         const color = DUST_COLORS[Math.floor(Math.random() * DUST_COLORS.length)]

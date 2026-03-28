@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Mail, Phone, AtSign, Send, Loader2 } from 'lucide-react'
+import { Mail, Phone, Instagram, Send, Loader2 } from 'lucide-react'
 
 const API_URL = import.meta.env.VITE_API_URL || ''
 
@@ -72,22 +72,22 @@ export default function Contact() {
               </h3>
               <div className="space-y-5">
                 <a
-                  href="mailto:hello@heldandheard.com"
+                  href="mailto:Maryna@heldandheardcare.com"
                   className="flex items-center gap-4 text-charcoal-light hover:text-sage-dark transition-colors group"
                 >
                   <div className="w-10 h-10 rounded-full bg-sage/10 flex items-center justify-center group-hover:bg-sage/20 transition-colors">
                     <Mail size={18} className="text-sage" />
                   </div>
-                  <span className="text-sm">hello@heldandheard.com</span>
+                  <span className="text-sm">Maryna@heldandheardcare.com</span>
                 </a>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+15304404663"
                   className="flex items-center gap-4 text-charcoal-light hover:text-sage-dark transition-colors group"
                 >
                   <div className="w-10 h-10 rounded-full bg-sage/10 flex items-center justify-center group-hover:bg-sage/20 transition-colors">
                     <Phone size={18} className="text-sage" />
                   </div>
-                  <span className="text-sm">(123) 456-7890</span>
+                  <span className="text-sm">(530) 440-4663</span>
                 </a>
                 <a
                   href="https://instagram.com/heldandheard.doulacare"
@@ -96,7 +96,7 @@ export default function Contact() {
                   className="flex items-center gap-4 text-charcoal-light hover:text-sage-dark transition-colors group"
                 >
                   <div className="w-10 h-10 rounded-full bg-sage/10 flex items-center justify-center group-hover:bg-sage/20 transition-colors">
-                    <AtSign size={18} className="text-sage" />
+                    <Instagram size={18} className="text-sage" />
                   </div>
                   <span className="text-sm">@heldandheard.doulacare</span>
                 </a>

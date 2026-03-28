@@ -15,7 +15,7 @@ export default function ServiceArea() {
         <p className="text-charcoal-light leading-relaxed max-w-xl mx-auto mb-8">
           I proudly serve families in Redding, California and the surrounding areas.
           If you're unsure whether you're within my service area, don't
-          hesitate to reach out — I'm happy to chat!
+          hesitate to reach out. I'm happy to chat!
         </p>
         <Link
           to="/contact"

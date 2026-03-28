@@ -4,11 +4,11 @@ import { ChevronDown } from 'lucide-react'
 const faqs = [
   {
     q: 'What exactly does a doula do?',
-    a: 'A doula provides continuous emotional, physical, and informational support during pregnancy, birth, and postpartum. I\'m not a medical provider — I\'m your dedicated support person who helps you feel informed, empowered, and cared for throughout your journey.',
+    a: 'A doula provides continuous emotional, physical, and informational support during pregnancy, birth, and postpartum. I\'m not a medical provider. I\'m your dedicated support person who helps you feel informed, empowered, and cared for throughout your journey.',
   },
   {
     q: 'When should I hire a doula?',
-    a: 'Ideally, reach out during your second trimester so we have plenty of time to build our relationship and prepare together. However, I welcome inquiries at any stage of pregnancy — it\'s never too early or too late to get support.',
+    a: 'Ideally, reach out during your second trimester so we have plenty of time to build our relationship and prepare together. However, I welcome inquiries at any stage of pregnancy. It\'s never too early or too late to get support.',
   },
   {
     q: 'Do you support all types of births?',
