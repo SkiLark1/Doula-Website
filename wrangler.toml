@@ -2,6 +2,10 @@ name = "doula-website"
 compatibility_date = "2024-12-01"
 pages_build_output_dir = "dist"
 
+[vars]
+ADMIN_EMAIL = "Maryna@heldandheardcare.com"
+JWT_SECRET = "hh2026-m7k2x9-secretkey-p4q8r1"
+
 [[d1_databases]]
 binding = "DB"
 database_name = "held-heard-db"
