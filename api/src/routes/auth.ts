@@ -1,6 +1,6 @@
 import { Hono } from 'hono'
 import type { Env } from '../index'
-import { createJWT, verifyPassword, hashPassword } from '../middleware/auth'
+import { createJWT, verifyPassword, hashPassword, authMiddleware } from '../middleware/auth'
 
 export const authRoutes = new Hono<{ Bindings: Env }>()
 
@@ -43,4 +43,25 @@ authRoutes.post('/setup', async (c) => {
   await c.env.DB.prepare('INSERT INTO admin_users (email, password_hash) VALUES (?, ?)').bind(email, hash).run()
 
   return c.json({ success: true, message: 'Admin user created' })
+})
+
+// Change password — requires current password + auth token
+authRoutes.post('/change-password', authMiddleware, async (c) => {
+  const { currentPassword, newPassword } = await c.req.json<{ currentPassword: string; newPassword: string }>()
+
+  if (!currentPassword || !newPassword || newPassword.length < 8) {
+    return c.json({ error: 'Current password and new password (min 8 chars) required' }, 400)
+  }
+
+  const userId = c.get('userId' as never)
+  const user = await c.env.DB.prepare('SELECT * FROM admin_users WHERE id = ?').bind(userId).first()
+  if (!user) return c.json({ error: 'User not found' }, 404)
+
+  const valid = await verifyPassword(currentPassword, user.password_hash as string)
+  if (!valid) return c.json({ error: 'Current password is incorrect' }, 401)
+
+  const hash = await hashPassword(newPassword)
+  await c.env.DB.prepare('UPDATE admin_users SET password_hash = ? WHERE id = ?').bind(hash, userId).run()
+
+  return c.json({ success: true, message: 'Password updated' })
 })
