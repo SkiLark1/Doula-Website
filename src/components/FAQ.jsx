@@ -12,15 +12,15 @@ const faqs = [
   },
   {
     q: 'Do you support all types of births?',
-    a: 'Absolutely. Whether you\'re planning a natural birth, hospital birth, birth center birth, home birth, or cesarean birth, I am here to support your choices without judgment. Every birth is beautiful, and every family deserves support.',
+    a: 'Absolutely. Whether you\'re planning a natural birth, cesarean birth, at home, birth center, or hospital, I am here to support your choices without judgment. Every birth is beautiful, and every family deserves support.',
   },
   {
     q: 'Will my partner feel left out?',
     a: 'Not at all! I work with your partner, not in place of them. I help your partner feel confident and involved, showing them comfort techniques and giving them breaks when needed. Many partners say having a doula made them feel more connected to the experience.',
   },
   {
-    q: 'What if I need a cesarean birth?',
-    a: 'I provide support for all birth outcomes, including cesarean births. I\'ll be there to provide emotional support, help you understand what\'s happening, advocate for your preferences, and support your immediate postpartum experience.',
+    q: 'What if my birth doesn\'t go as planned?',
+    a: 'I\'m there to support you no matter how your birth unfolds. I\'ll be there to provide emotional support and help you understand what\'s happening.',
   },
   {
     q: 'What does postpartum doula support look like?',

@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
-import { Baby, Moon, Heart, Clock, Users, Sparkles } from 'lucide-react'
+import { Baby, Moon, Heart, Clock, Users, Sparkles, BookOpen, Home } from 'lucide-react'
 
 const birthFeatures = [
   { icon: Users, text: 'Prenatal visits to build trust & prepare' },
   { icon: Heart, text: 'Continuous labor & delivery support' },
   { icon: Clock, text: 'On-call availability as your due date approaches' },
   { icon: Sparkles, text: 'Immediate postpartum support' },
+  { icon: BookOpen, text: 'Evidence-based information to guide your decisions' },
 ]
 
 const postpartumFeatures = [
@@ -13,6 +14,7 @@ const postpartumFeatures = [
   { icon: Moon, text: 'Emotional support & active listening' },
   { icon: Baby, text: 'Newborn care & feeding guidance' },
   { icon: Sparkles, text: 'Creating space for rest & healing' },
+  { icon: Home, text: 'Light household help so you can focus on recovery' },
 ]
 
 export default function Services() {

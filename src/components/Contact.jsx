@@ -1,13 +1,48 @@
 import { useState } from 'react'
-import { Mail, Phone, AtSign, Send } from 'lucide-react'
+import { Mail, Phone, AtSign, Send, Loader2 } from 'lucide-react'
+
+const API_URL = import.meta.env.VITE_API_URL || ''
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    due_date: '',
+    service: '',
+    message: '',
+  })
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // In production, wire this to a form handler (Formspree, Netlify Forms, etc.)
-    setSubmitted(true)
+    setLoading(true)
+    setError('')
+
+    try {
+      const res = await fetch(`${API_URL}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+
+      if (!res.ok) {
+        const data = await res.json()
+        throw new Error(data.error || 'Something went wrong')
+      }
+
+      setSubmitted(true)
+    } catch (err) {
+      setError(err.message || 'Failed to send. Please try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -55,7 +90,9 @@ export default function Contact() {
                   <span className="text-sm">(123) 456-7890</span>
                 </a>
                 <a
-                  href="#"
+                  href="https://instagram.com/heldandheard.doulacare"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-4 text-charcoal-light hover:text-sage-dark transition-colors group"
                 >
                   <div className="w-10 h-10 rounded-full bg-sage/10 flex items-center justify-center group-hover:bg-sage/20 transition-colors">
@@ -93,13 +130,21 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm">
+                    {error}
+                  </div>
+                )}
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-charcoal-light mb-2 font-medium">
-                      Your Name
+                      Your Name *
                     </label>
                     <input
                       type="text"
+                      name="name"
+                      value={form.name}
+                      onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream/30 focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/30 transition-all text-sm text-charcoal"
                       placeholder="Full name"
@@ -107,10 +152,13 @@ export default function Contact() {
                   </div>
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-charcoal-light mb-2 font-medium">
-                      Email
+                      Email *
                     </label>
                     <input
                       type="email"
+                      name="email"
+                      value={form.email}
+                      onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream/30 focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/30 transition-all text-sm text-charcoal"
                       placeholder="you@email.com"
@@ -124,26 +172,37 @@ export default function Contact() {
                     </label>
                     <input
                       type="tel"
+                      name="phone"
+                      value={form.phone}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream/30 focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/30 transition-all text-sm text-charcoal"
                       placeholder="(optional)"
                     />
                   </div>
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-charcoal-light mb-2 font-medium">
-                      Due Date
+                      Due Date *
                     </label>
                     <input
                       type="text"
+                      name="due_date"
+                      value={form.due_date}
+                      onChange={handleChange}
+                      required
                       className="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream/30 focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/30 transition-all text-sm text-charcoal"
-                      placeholder="Approximate (optional)"
+                      placeholder="Approximate due date"
                     />
                   </div>
                 </div>
                 <div>
                   <label className="block text-xs uppercase tracking-wider text-charcoal-light mb-2 font-medium">
-                    Service Interest
+                    Service Interest *
                   </label>
                   <select
+                    name="service"
+                    value={form.service}
+                    onChange={handleChange}
+                    required
                     className="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream/30 focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/30 transition-all text-sm text-charcoal"
                   >
                     <option value="">Select a service...</option>
@@ -158,6 +217,9 @@ export default function Contact() {
                     Tell Me About You
                   </label>
                   <textarea
+                    name="message"
+                    value={form.message}
+                    onChange={handleChange}
                     rows={4}
                     className="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream/30 focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/30 transition-all text-sm text-charcoal resize-none"
                     placeholder="Share a bit about yourself, your pregnancy, or any questions you have..."
@@ -165,9 +227,17 @@ export default function Contact() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-4 bg-sage text-white font-medium rounded-full hover:bg-sage-dark hover:shadow-lg transition-all duration-300 tracking-widest uppercase text-sm"
+                  disabled={loading}
+                  className="w-full py-4 bg-sage text-white font-medium rounded-full hover:bg-sage-dark hover:shadow-lg transition-all duration-300 tracking-widest uppercase text-sm disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  Send Message
+                  {loading ? (
+                    <>
+                      <Loader2 size={16} className="animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    'Send Message'
+                  )}
                 </button>
                 <p className="text-xs text-charcoal-light text-center">
                   I'll respond within 24 hours. Your information is always kept private.

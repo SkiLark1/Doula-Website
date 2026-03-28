@@ -5,7 +5,7 @@ const values = [
     icon: Heart,
     title: 'Compassionate Presence',
     description:
-      'I believe every birthing person deserves unwavering emotional support and a calm, steady presence throughout their journey.',
+      'I believe every woman deserves unwavering emotional support and a calm, steady presence throughout their journey.',
   },
   {
     icon: Shield,

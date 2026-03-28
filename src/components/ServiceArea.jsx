@@ -10,10 +10,10 @@ export default function ServiceArea() {
         </div>
         <h2 className="font-heading text-3xl md:text-4xl font-light text-charcoal mb-4">
           Serving Families in{' '}
-          <span className="italic text-sage-dark">Your Area</span>
+          <span className="italic text-sage-dark">Redding, CA</span>
         </h2>
         <p className="text-charcoal-light leading-relaxed max-w-xl mx-auto mb-8">
-          I proudly serve families in the local community and surrounding areas.
+          I proudly serve families in Redding, California and the surrounding areas.
           If you're unsure whether you're within my service area, don't
           hesitate to reach out — I'm happy to chat!
         </p>

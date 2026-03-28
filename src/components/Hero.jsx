@@ -13,14 +13,17 @@ function DustLetter({ char, delay }) {
 
     const particles = []
     const timer = setTimeout(() => {
-      for (let i = 0; i < 6; i++) {
+      // Main burst particles — blow to the right
+      for (let i = 0; i < 18; i++) {
         const dot = document.createElement('span')
         const color = DUST_COLORS[Math.floor(Math.random() * DUST_COLORS.length)]
-        const size = 2 + Math.random() * 3
-        const angle = -30 + Math.random() * 120 // scatter upward-ish
-        const distance = 12 + Math.random() * 20
-        const tx = Math.cos((angle * Math.PI) / 180) * distance
-        const ty = -Math.abs(Math.sin((angle * Math.PI) / 180) * distance)
+        const size = 1.5 + Math.random() * 4
+        // Bias angle rightward: -40 to 40 degrees from horizontal right
+        const angle = -40 + Math.random() * 80
+        const distance = 15 + Math.random() * 50
+        const tx = Math.abs(Math.cos((angle * Math.PI) / 180) * distance)
+        const ty = Math.sin((angle * Math.PI) / 180) * distance
+        const duration = 0.4 + Math.random() * 0.5
         dot.style.cssText = `
           position: absolute;
           width: ${size}px;
@@ -31,8 +34,34 @@ function DustLetter({ char, delay }) {
           left: 50%;
           pointer-events: none;
           opacity: 0;
-          box-shadow: 0 0 ${3 + Math.random() * 4}px ${color}90;
-          animation: dust-fly 0.5s ease-out ${i * 0.03}s both;
+          box-shadow: 0 0 ${3 + Math.random() * 5}px ${color}90;
+          animation: dust-fly ${duration}s ease-out ${i * 0.02}s both;
+          --tx: ${tx}px;
+          --ty: ${ty}px;
+        `
+        el.appendChild(dot)
+        particles.push(dot)
+      }
+      // Lingering sparkle particles — smaller, float up-right slowly
+      for (let i = 0; i < 8; i++) {
+        const dot = document.createElement('span')
+        const color = DUST_COLORS[Math.floor(Math.random() * DUST_COLORS.length)]
+        const size = 1 + Math.random() * 2
+        const tx = 8 + Math.random() * 30
+        const ty = -5 - Math.random() * 25
+        const duration = 0.6 + Math.random() * 0.6
+        dot.style.cssText = `
+          position: absolute;
+          width: ${size}px;
+          height: ${size}px;
+          background: ${color};
+          border-radius: 50%;
+          top: 50%;
+          left: 50%;
+          pointer-events: none;
+          opacity: 0;
+          box-shadow: 0 0 ${4 + Math.random() * 4}px ${color}BB;
+          animation: dust-fly-linger ${duration}s ease-out ${0.05 + i * 0.04}s both;
           --tx: ${tx}px;
           --ty: ${ty}px;
         `

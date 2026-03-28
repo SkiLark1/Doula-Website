@@ -20,7 +20,7 @@ const steps = [
     number: '03',
     title: 'Birth Support',
     description:
-      'When the time comes, I\'m right there with you. Continuous support through labor and delivery — physical comfort, emotional reassurance, and advocacy for your wishes.',
+      'When the time comes, I\'m right there with you. Continuous support through labor and delivery — physical comfort, emotional reassurance, and supporting your choices.',
   },
   {
     icon: Sun,
