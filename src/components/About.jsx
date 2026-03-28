@@ -39,23 +39,35 @@ export default function About() {
               Hi, I'm Maryna
             </h3>
             <p className="text-charcoal-light leading-relaxed">
-              I became a doula because I believe deeply that every family
-              deserves respectful, compassionate support during one of life's
-              most transformative experiences. My journey into birth work began
-              from a place of passion for empowering families and ensuring that
-              every voice is heard.
+              I'm a doula with a deep passion for supporting women and families
+              through one of the most transformative seasons of life. My path
+              into this work began with a strong appreciation for how personal
+              and powerful pregnancy, birth, and postpartum can be. I have seen
+              the difference it makes when someone feels truly supported, and I
+              also understand how overwhelming it can feel without that presence.
             </p>
             <p className="text-charcoal-light leading-relaxed">
-              As your doula, I bring a calm, steady presence to your birth
-              space. I'm here to hold space for you, advocate for your wishes,
-              and provide the continuous support that makes all the difference.
-              Whether it's your first baby or your fourth, you'll never have to
-              navigate this journey alone.
+              I believe every family deserves respectful and compassionate care,
+              along with a space where their voice is heard and valued. As your
+              doula, I bring a calm and steady presence to your experience. I
+              offer guidance, encouragement, and continuous support so you feel
+              prepared and cared for from beginning to end. Whether you are
+              welcoming your first baby or growing your family, you do not have
+              to go through this alone.
             </p>
             <p className="text-charcoal-light leading-relaxed">
-              My philosophy is simple: when you feel safe, informed, and
-              supported, you can birth with confidence. I'm honored to walk
-              alongside you.
+              My approach is rooted in a simple belief. When you feel safe,
+              informed, and supported, you can move through your experience with
+              confidence and trust in yourself. It is an honor to walk alongside
+              you during this time, holding space for your unique journey and
+              helping you feel seen and heard.
+            </p>
+            <p className="text-charcoal-light leading-relaxed">
+              When I am not supporting families, I am spending time with my two
+              boys, soaking in the small, meaningful moments that make motherhood
+              so special. They are a constant reminder of why this work matters
+              so much to me, and I continue to grow and learn through both
+              motherhood and the care I provide to others.
             </p>
 
             <div className="pt-4">
