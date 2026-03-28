@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { MessageSquare, ChevronDown, ChevronUp, X, Save, Loader2 } from 'lucide-react'
+import { MessageSquare, ChevronDown, ChevronUp, X, Save, Loader2, Trash2 } from 'lucide-react'
 import { useApi } from '../hooks/useApi'
 import AdminLayout from '../components/AdminLayout'
 
@@ -26,6 +26,7 @@ export default function QuotesPage() {
   const [expandedId, setExpandedId] = useState(null)
   const [editNotes, setEditNotes] = useState('')
   const [saving, setSaving] = useState(false)
+  const [confirmDeleteId, setConfirmDeleteId] = useState(null)
 
   const fetchQuotes = async () => {
     setLoading(true)
@@ -68,6 +69,18 @@ export default function QuotesPage() {
       console.error(err)
     } finally {
       setSaving(false)
+    }
+  }
+
+  const deleteQuote = async (id) => {
+    try {
+      await apiFetch(`/api/quotes/${id}`, { method: 'DELETE' })
+      setQuotes((prev) => prev.filter((q) => q.id !== id))
+      setTotal((t) => t - 1)
+      setConfirmDeleteId(null)
+      setExpandedId(null)
+    } catch (err) {
+      console.error(err)
     }
   }
 
@@ -220,6 +233,35 @@ export default function QuotesPage() {
                         {s}
                       </button>
                     ))}
+                  </div>
+
+                  {/* Delete */}
+                  <div className="mt-6 pt-4 border-t border-gray-100">
+                    {confirmDeleteId === quote.id ? (
+                      <div className="flex items-center gap-3">
+                        <p className="text-sm text-red-600">Permanently delete this quote?</p>
+                        <button
+                          onClick={() => deleteQuote(quote.id)}
+                          className="text-xs px-3 py-1.5 rounded-full bg-red-600 text-white font-medium hover:bg-red-700 transition-colors"
+                        >
+                          Yes, delete
+                        </button>
+                        <button
+                          onClick={() => setConfirmDeleteId(null)}
+                          className="text-xs px-3 py-1.5 rounded-full border border-gray-200 text-gray-500 font-medium hover:border-gray-400 transition-colors"
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        onClick={() => setConfirmDeleteId(quote.id)}
+                        className="flex items-center gap-1.5 text-xs text-red-400 hover:text-red-600 transition-colors"
+                      >
+                        <Trash2 size={14} />
+                        Delete quote
+                      </button>
+                    )}
                   </div>
                 </div>
               )}

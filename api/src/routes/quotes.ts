@@ -88,9 +88,9 @@ quotesRoutes.patch('/:id', async (c) => {
   return c.json(updated)
 })
 
-// Archive (soft delete)
+// Permanently delete
 quotesRoutes.delete('/:id', async (c) => {
   const id = c.req.param('id')
-  await c.env.DB.prepare("UPDATE quotes SET status = 'archived' WHERE id = ?").bind(id).run()
+  await c.env.DB.prepare('DELETE FROM quotes WHERE id = ?').bind(id).run()
   return c.json({ success: true })
 })

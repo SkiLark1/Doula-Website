@@ -184,13 +184,12 @@ export default function Contact() {
                       Due Date *
                     </label>
                     <input
-                      type="text"
+                      type="date"
                       name="due_date"
                       value={form.due_date}
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream/30 focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/30 transition-all text-sm text-charcoal"
-                      placeholder="Approximate due date"
                     />
                   </div>
                 </div>
