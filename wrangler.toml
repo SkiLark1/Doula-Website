@@ -5,6 +5,7 @@ pages_build_output_dir = "dist"
 [vars]
 ADMIN_EMAIL = "Maryna@heldandheardcare.com"
 JWT_SECRET = "hh2026-m7k2x9-secretkey-p4q8r1"
+RESEND_API_KEY = "re_jWTyRe3H_7iQ92YS5AWiJMRapYY8youmD"
 
 [[d1_databases]]
 binding = "DB"
