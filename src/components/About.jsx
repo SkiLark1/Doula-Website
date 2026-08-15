@@ -1,4 +1,3 @@
-import { Leaf } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 export default function About() {
@@ -18,17 +17,15 @@ export default function About() {
 
         {/* Story */}
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-          {/* Image placeholder */}
+          {/* Portrait */}
           <div className="relative">
             <div className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-blush-light to-cream-dark overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-24 h-24 rounded-full bg-sage/10 flex items-center justify-center mx-auto mb-4">
-                    <Leaf size={40} className="text-sage" />
-                  </div>
-                  <p className="text-sm text-charcoal-light italic">Your photo here</p>
-                </div>
-              </div>
+              <img
+                src="/about-maryna.jpg"
+                alt="Maryna with her family on the beach"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+                loading="lazy"
+              />
             </div>
             {/* Decorative accent */}
             <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-sage/20 rounded-2xl -z-10" />
