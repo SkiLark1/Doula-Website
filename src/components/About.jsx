@@ -16,19 +16,23 @@ export default function About() {
         </div>
 
         {/* Story */}
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
           {/* Portrait */}
-          <div className="relative">
-            <div className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-blush-light to-cream-dark overflow-hidden relative">
+          <div className="relative md:sticky md:top-28">
+            {/* Decorative accent — offset outline, sits behind the photo */}
+            <div className="absolute -bottom-5 -right-5 w-full h-full rounded-2xl border-2 border-sage/30" />
+            <div className="relative aspect-square rounded-2xl bg-cream-dark overflow-hidden shadow-sm">
               <img
-                src="/about-maryna.jpg"
-                alt="Maryna with her family on the beach"
-                className="absolute inset-0 w-full h-full object-cover object-center"
+                src="/about-family.jpg"
+                alt="Maryna with her family and their dog on the beach"
+                width="1100"
+                height="1100"
+                className="absolute inset-0 w-full h-full object-cover object-center sepia-[0.12] saturate-[1.12] contrast-[1.03]"
                 loading="lazy"
               />
+              {/* Warm wash to settle the cool beach tones into the palette */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-blush-light/40 via-transparent to-sage/15 mix-blend-soft-light pointer-events-none" />
             </div>
-            {/* Decorative accent */}
-            <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-sage/20 rounded-2xl -z-10" />
           </div>
 
           <div className="space-y-6">
